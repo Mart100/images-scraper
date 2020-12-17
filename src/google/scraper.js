@@ -9,6 +9,7 @@ const logger = require('../logger');
  * @param {string} userAgent user agent
  * @param {object} puppeteer puppeteer options
  * @param {object} tbs extra options for TBS request parameter
+ * @param {object} safe enable safesearch
  */
 class GoogleScraper {
   constructor({
@@ -16,7 +17,9 @@ class GoogleScraper {
     scrollDelay = 500,
     puppeteer = {},
     tbs = {},
+    safe = false
   } = {}) {
+    this.safe = safe;
     this.userAgent = userAgent;
     this.scrollDelay = scrollDelay;
     this.puppeteerOptions = puppeteer;
@@ -39,7 +42,7 @@ class GoogleScraper {
     if (searchQuery === undefined || searchQuery === '') {
       throw new Error('Invalid search query provided');
     }
-    const query = `https://www.google.com/search?q=${searchQuery}&source=lnms&tbm=isch&sa=X&tbs=${this.tbs}`;
+    const query = `https://www.google.com/search?q=${searchQuery}&source=lnms&tbm=isch&sa=X&tbs=${this.tbs}&safe=${this.safe ? 'on' : 'off'}`;
 
     logger.info(`Start Google search for "${searchQuery}"`);
     const browser = await puppeteer.launch({
