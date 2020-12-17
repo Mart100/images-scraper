@@ -5,9 +5,9 @@ describe('Google Tests', function() {
   const validator = require('validator');
   const expect = require('chai').expect;
 
-  it('should not return anything for 4vWJtGWF6mj7', () => {
-    const google = new Scraper();
-    return google.scrape('4vWJtGWF6mj7', 10).should.eventually.be.empty;
+  it('should not return anything for \"porn\" with safe search', async () => {
+    const google = new Scraper({safe: true});
+    return google.scrape('porn', 10).should.eventually.be.empty;
   });
 
   it('should eventually return some results for banana', async () => {
