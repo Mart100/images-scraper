@@ -10,6 +10,10 @@ This a simple way to scrape Google images using Puppeteer. The headless browser 
 
 # Installation
 
+for the version with safesearch parameter:
+`npm install https://github.com/Mart100/images-scraper/tarball/master` 
+
+Or for the original version:
 `npm install images-scraper`
 
 # Example
