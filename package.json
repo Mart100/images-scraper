@@ -37,31 +37,5 @@
     "mocha": "^6.2.3",
     "prettier-check": "^2.0.0",
     "validator": "^11.1.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
-  },
-  "prettier": {
-    "printWidth": 100,
-    "singleQuote": true,
-    "trailingComma": "es5",
-    "overrides": [
-      {
-        "files": "*.css",
-        "options": {
-          "useTabs": false,
-          "tabWidth": 2
-        }
-      },
-      {
-        "files": "*.yaml",
-        "options": {
-          "useTabs": false,
-          "tabWidth": 2
-        }
-      }
-    ]
   }
 }
